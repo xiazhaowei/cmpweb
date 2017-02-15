@@ -1,0 +1,14 @@
+<if condition="$links">
+                    <div class="btn-group dropup" style="margin-bottom:15px;">
+                      <button type="button" class="btn btn-default btn-sm" data-toggle="dropdown" aria-expanded="false" style="line-height:13px;">&nbsp;&nbsp;&nbsp;&nbsp;Link&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                      <button type="button" class="btn btn-default dropdown-toggle btn-sm"  style="line-height:13px;">
+                        <span class="caret"></span>
+                        <span class="sr-only">Link</span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                      	<volist name='links' id='vo'>
+                        <li><a target="_blank" href="<{$vo.eurl}>"><{$vo.ename}></a></li>
+		</volist>
+                      </ul>
+                    </div> 
+</if>

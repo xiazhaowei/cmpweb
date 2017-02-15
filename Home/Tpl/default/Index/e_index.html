@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><{$Think.config.seo_etitle}></title>
+    <meta name="keywords" content="<{$Think.config.seo_ekeywords}>" />
+    <meta name="description" content="<{$Think.config.seo_edescription}>" />
+    <include file='Public:file'/>
+  </head>
+<body>
+
+<include file='Public:e_head'/>
+
+    <!-- main -->
+    <div class="container">    
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="about_box">
+                    <h1 class="about_h1">ABOUT US</h1>
+                    <section>
+                        <img align="left" src="../Public/images/about.png" alt="ABOUT US">
+                        <{:W('About',array('id'=>25,'len'=>573,'lang'=>'e'))}>
+                        <a href="<{:W('Listhref',array('id'=>25,'lang'=>'e'))}>" class="about_more"> VIEW DETAILS </a>
+                    <section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">    
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="index_product">
+                    <h1 class="about_h1">PRODUCT DISPLAY</h1>
+                        <div class="product_list">
+                        <{:W('List',array('table'=>'Product','bid'=>1,'id'=>1,'lang'=>'e'))}>
+                        </div>
+                </div>
+
+                    <div class="left_nav index_left_nav" id="categories">
+                        <h1 class="left_h1">CATEGORIES</h1>
+                         <{:W('Left',array('id'=>1,'type'=>'product','lang'=>'e'))}>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">    
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-8 col-md-7">
+                <div class="news_box">
+                    <h1 class="about_h1">NEWS CENTER</h1>
+                    <{:W('List',array('table'=>'New','bid'=>2,'id'=>2,'lang'=>'e'))}>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-5">    
+                <include file='Public:e_contact'/>
+                <{:W('Link',array('lang'=>'e'))}>
+                <{:W('Tags',array('lang'=>'e'))}>
+            </div>
+
+        </div>
+    </div>
+     
+    <include file='Public:e_foot'/>
+
+  </body>
+</html>

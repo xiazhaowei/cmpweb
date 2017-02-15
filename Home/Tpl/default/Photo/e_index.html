@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><{$article.etitle}></title>
+    <meta name="keywords" content="<{$article.ekeywords}>" />
+    <meta name="description" content="<{$article.edescription}>" />
+    <include file='Public:file'/>
+    <link href="../Public/css/lightbox.css" rel="stylesheet">
+    <script src="../Public/js/lightbox.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.showpic_flash').bxSlider({
+              pagerCustom: '#pic-page',
+               adaptiveHeight: true,
+            });
+
+        });
+    </script>
+  </head>
+  <body id="photo">
+  
+ <include file='Public:e_head'/>
+   
+    <!-- main -->
+      <div class="container">    
+          <div class="row">
+
+           <!-- right -->
+           <div class="col-xs-12 col-sm-8 col-md-9" style="float:right">
+                  <div class="list_box"> 
+                    <h2 class="left_h1"><{$articlelist.ename}></h2>
+
+                    <!-- showpic -->
+                    <div class="col-sm-11 col-md-8 col-md-offset-2" style="margin-bottom:30px; margin-top:20px;">
+                        <ul class="showpic_flash">
+                          <volist name='photo' id='vo'>
+                          <li><a class="example-image-link" href="__ROOT__/Uploads/<{$photo[$key]}>" data-lightbox="example-set" target="_blank"><img class="example-image" src="__ROOT__/Uploads/<{$photo[$key]}>" alt="<{$article.ename}>"/></a></li>
+                        </volist>
+                        </ul>
+                        
+                        <div id="pic-page">
+                        <volist name='photo' id='vo'>
+                          <a data-slide-index="<{$key}>" href="__ROOT__/Uploads/<{$photo[$key]}>"><img src="__ROOT__/Uploads/<{$photo[$key]}>" alt="<{$article.ename}>" /></a>
+                        </volist>
+                        </div>
+                    </div>
+
+                    <div class="product_con">
+                    <{$article.econtents}>
+                    </div>
+
+                     <div class="point">
+                          <span class="to_prev col-xs-12 col-sm-6 col-md-6"><{$prevnext.prev}></span>
+                          <span class="to_next col-xs-12 col-sm-6 col-md-6"><{$prevnext.next}></span>
+                      </div>
+
+
+                  </div>
+                  
+
+                  <div class="list_related"> 
+                    <h1 class="left_h1">RELATED PHOTO</h1>
+                    <div class="product_list related_list">
+                        <volist name="related" id="vo" offset="0" length="4">
+                            <div class="col-sm-4 col-md-3 col-mm-6 product_img">
+                                <a href="<{:W('Href',array('url'=>$vo['url'],'id'=>$vo['id'],'type'=>'Photo','lang'=>'e'))}>">
+                                  <img  src="__ROOT__/Uploads/<{$vo.thumb}>" class="opacity_img" alt="<{$vo.ename}>"/>
+                                </a>
+                                <p class="product_title"><a href="<{:W('Href',array('url'=>$vo['url'],'id'=>$vo['id'],'type'=>'Photo','lang'=>'e'))}>" title="<{$vo.ename}>"><{$vo.ename|mb_substr=###,0,20,'utf-8'}></a></p>
+                            </div>
+                        </volist>
+                    </div>
+                  </div>
+              </div>    
+
+              <!-- left -->
+              <div class="col-xs-12 col-sm-4 col-md-3">
+                  <div class="left_nav" id="categories">
+                    <h1 class="left_h1">CATEGORIES</h1>
+                    <{:W('Left',array('id'=>$article['bid'],'type'=>'photo','lang'=>'e'))}>
+                  </div>
+
+                  <div class="left_news">
+                    <h1 class="left_h1">LATEST NEWS</h1>
+                    <{:W('List',array('table'=>'New','bid'=>2,'id'=>2,'lang'=>'e'))}>
+                  </div>
+                 <include file='Public:e_contact'/>
+              </div>
+
+         </div>
+      </div>
+    
+    <include file='Public:e_foot'/>
+    
+  </body>
+</html>

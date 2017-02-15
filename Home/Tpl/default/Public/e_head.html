@@ -1,0 +1,47 @@
+<header>
+
+
+    <div class="top_menu">
+      <div class="container">
+        <span class="top_name">Welcome: <{$Think.config.web_ename}></span>
+        <div class="language">Language: 
+        <a href="<{:W('Index',array('cnen'=>'cn','lang'=>'c'))}>" title="Chinese"><img src="../Public/images/Chinese.gif" alt="Chinese"></a>
+       ∷&nbsp;
+        <a href="<{:W('Index',array('cnen'=>'en','lang'=>'e'))}>" title="English"><img src="../Public/images/English.gif" alt="English"></a>
+        </div>
+      </div>
+    </div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-9 col-md-9">
+        <a href="<{$Think.config.web_url}>"><img src="__ROOT__/Uploads/<{$Think.config.web_logo}>" class="logo" alt="<{$Think.config.web_ename}>"/></a>
+    </div>
+
+    <div id="topsearch" class="col-xs-12 col-sm-3 col-md-3">
+        <form id="searchform" method="get" action="<{:U('Search/index',array('g'=>'e'))}>">
+            <div class="input-group search_group">
+                <input type="text" name="name" class="form-control input-sm" placeholder="Product search">
+                   <span class="input-group-btn">
+                      <a href="javascript:searchform.submit();" class="btn btn-sm mysearch_btn" type="button">Search</a>
+                  </span>
+            </div>
+        </form>
+    </div>
+
+  </div>
+</div>
+  
+<{:W('Nav',array('lang'=>'e'))}>
+
+<{:W('Flash')}>
+<script type="text/javascript">
+    $('.bxslider').bxSlider({
+      adaptiveHeight: true,
+      infiniteLoop: true,
+      hideControlOnEnd: true,
+      auto:true
+    });
+</script>
+</header>
